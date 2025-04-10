@@ -6,7 +6,7 @@ from tensorflow.keras.preprocessing import image
 from PIL import Image
 
 # Load model
-model = load_model("animal_classifier_model.keras")
+model = load_model("Animal_classifier_model.keras")
 
 # Class labels
 class_labels = ['Bear', 'Bird', 'Cat', 'Cow', 'Deer', 'Dog', 'Dolphin', 'Elephant',
