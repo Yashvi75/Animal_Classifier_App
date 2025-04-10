@@ -32,4 +32,5 @@ if uploaded_file is not None:
     predicted_index = np.argmax(predictions[0])
     predicted_label = class_labels[predicted_index]
 
+    confidence = np.max(predictions[0]) * 100
     st.success(f"🐾 Prediction: **{predicted_label}**")
