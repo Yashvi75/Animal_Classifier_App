@@ -5,6 +5,17 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 from PIL import Image
 
+st.markdown("""
+<style>
+body {
+    background-color: #fdf6f0;
+}
+</style>
+""", unsafe_allow_html=True)
+
+logo_url = "https://cdn-icons-png.flaticon.com/512/616/616408.png"
+st.image(logo_url, width=100)
+
 # Load model
 model = load_model("Animal_classifier_model.keras")
 
@@ -32,5 +43,15 @@ if uploaded_file is not None:
     predicted_index = np.argmax(predictions[0])
     predicted_label = class_labels[predicted_index]
 
-    confidence = np.max(predictions[0]) * 100
-    st.success(f"🐾 Prediction: **{predicted_label}**")
+    st.markdown(f"""
+<div style='background-color: #cce5ff; padding: 10px; border-radius: 8px;'>
+    <h4 style='color: #004085;'>🔍 Confidence: {confidence:.2f}%</h4>
+</div>
+""", unsafe_allow_html=True)
+
+    st.markdown(f"""
+<div style='background-color: #d4edda; padding: 10px; border-radius: 8px;'>
+    <h3 style='color: #155724;'>🐾 Prediction: {predicted_label}</h3>
+</div>
+""", unsafe_allow_html=True)
+
